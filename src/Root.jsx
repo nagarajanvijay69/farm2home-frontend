@@ -5,7 +5,7 @@ import Footer from './Navbar/Footer'
 
 const Root = () => {
 
-  return <div className="root h-dvh overflow-x-hidden scrollbar-hide">
+  return <div className="root h-dvh overflow-x-hidden scrollbar-hide main-content">
     <Navbar />
     <Outlet />
     <Footer />

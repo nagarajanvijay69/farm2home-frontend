@@ -16,7 +16,7 @@ const Products = () => {
   const user = useSelector((state) => state.data.User);
 
   const [temp, setTemp] = useState('');
-  console.log(temp)
+  // console.log(temp)
   const [search, Setsearch] = useState('');
 
   const product = useSelector((state) => state.data.products) || [];

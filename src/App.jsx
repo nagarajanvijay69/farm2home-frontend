@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import { Route, BrowserRouter, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Products from './pages/Products';
@@ -42,6 +42,8 @@ const App = () => {
   const admin = sessionStorage.getItem("admin");
 
 
+
+
   const fetch = async () => {
     // console.log("Fetch")
     const products = await axios.get(`${port}/getproducts`);
@@ -77,7 +79,7 @@ const App = () => {
 
 
   return <BrowserRouter>
-       <Scroll />
+    <Scroll />
     <Routes>
       <Route path='/' element={<Root />} errorElement={<Error />}>
         <Route index element={<Home />} />

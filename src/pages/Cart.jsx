@@ -19,7 +19,7 @@ const Cart = () => {
   const add = user?.address?.[0] || [];
 
   const [bool, setBool] = useState(false);
-  console.log(bool);
+  // console.log(bool);
 
   const dispatch = useDispatch();
 
