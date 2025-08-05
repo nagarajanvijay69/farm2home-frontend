@@ -32,7 +32,6 @@ import AdminEdit from './admin/AdminEdit';
 
 const App = () => {
 
-  
   const port = 'http://localhost:8000';
   const data = useSelector((state) => state.data.products);
   const dispatch = useDispatch();
