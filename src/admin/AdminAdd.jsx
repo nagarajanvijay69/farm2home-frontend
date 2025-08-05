@@ -57,6 +57,7 @@ const AdminAdd = () => {
             dispatch(setProducts(res.data.products))
             navigate('/admin-dash')
         } else {
+            console.log(res)
             alert(res.data.message)
         }
     }
