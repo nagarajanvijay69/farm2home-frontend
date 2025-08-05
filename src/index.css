@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+     font-family: 'outfit';
+     scroll-behavior: smooth;
+     scrollbar-width: none;
+}
+
+html {
+     scroll-behavior: smooth;
+     scrollbar-width: none;
+}
+
+.active {
+     color: green;
+     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+     .hide {
+          display: none;
+     }
+}
