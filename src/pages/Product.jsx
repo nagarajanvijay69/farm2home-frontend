@@ -12,7 +12,7 @@ const Product = () => {
   const item = useSelector((state) => state.data.products)
   const dispatch = useDispatch();
   const login = useSelector((state) => state.data.Login)
-  const port = 'http://localhost:8000';
+  const port = 'https://farm2home-backend-8013.onrender.com';
   const user = useSelector((state)=> state.data.User)
   const navigate = useNavigate();
 

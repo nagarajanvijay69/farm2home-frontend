@@ -12,7 +12,7 @@ const Signup = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const port = 'http://localhost:8000';
+    const port = 'https://farm2home-backend-8013.onrender.com';
     const navigate = useNavigate();
     const dispatch = useDispatch();
     var otp = useSelector((state) => state.data.otp);

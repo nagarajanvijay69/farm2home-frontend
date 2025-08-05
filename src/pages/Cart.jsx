@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeCart } from '../redux-store/Slice'
 import axios from 'axios'
 import { initCart, setUser } from '../redux-store/Slice'
-import {ToastContainer, toast} from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const Cart = () => {
@@ -13,8 +13,11 @@ const Cart = () => {
   const products = useSelector((state) => state.data.cart) || [];
   const login = useSelector((state) => state.data.Login) || false;
   const user = useSelector((state) => state?.data?.User ?? []) || [];
+
+  const post = 'https://farm2home-backend-8013.onrender.com';
+
   const add = user?.address?.[0] || [];
-  
+
   const [bool, setBool] = useState(false);
   console.log(bool);
 
@@ -77,7 +80,7 @@ const Cart = () => {
             });
           }
 
-          const users = await axios.post(`${post}/user`, {userId : user._id});
+          const users = await axios.post(`${post}/user`, { userId: user._id });
           dispatch(setUser(users.data.user));
           await axios.post(`${post}/emptyCart`, { userId: user._id });
           dispatch(initCart([]));
@@ -112,7 +115,6 @@ const Cart = () => {
 
 
 
-  const post = 'http://localhost:8000';
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   const goProduct = () => {

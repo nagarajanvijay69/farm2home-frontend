@@ -19,10 +19,10 @@ const Footer = () => {
       <div className="quick-links mb-8">
         <h1 className="text-xl font-semibold my-1">Quick Links</h1>
         <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/products'>Products</Link></li>
-          <li><Link to='/cart'>Cart</Link></li>
-          <li><Link to='/contact'>Contact</Link></li>
+          <Link to='/'><li>Home</li></Link>
+          <Link to='/products'><li>Products</li></Link>
+          <Link to='/cart'><li>Cart</li></Link>
+          <Link to='/contact'><li>Contact</li></Link>
         </ul>
       </div>
       <div className="connect mb-8">

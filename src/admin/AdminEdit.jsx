@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const AdminEdit = () => {
 
-    const port = 'http://localhost:8000';
+    const port = 'https://farm2home-backend-8013.onrender.com';
 
     const { id } = useParams();
     const navigate = useNavigate();

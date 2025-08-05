@@ -19,7 +19,7 @@ const AdminAdd = () => {
         navigate('/admin');
     }
 
-    const port = 'http://localhost:8000';
+    const port = 'https://farm2home-backend-8013.onrender.com';
 
     const [Files, setFiles] = useState([]);
     const [Imgfile, setImgfile] = useState([]);
