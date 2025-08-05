@@ -27,6 +27,7 @@ import { initCart } from './redux-store/Slice'
 import axios from 'axios'
 import { setLogin, setUser, initOrder, initallorder } from './redux-store/Slice';
 import AdminEdit from './admin/AdminEdit';
+import Scroll from './pages/Scroll';
 
 
 
@@ -76,6 +77,7 @@ const App = () => {
 
 
   return <BrowserRouter>
+       <Scroll />
     <Routes>
       <Route path='/' element={<Root />} errorElement={<Error />}>
         <Route index element={<Home />} />
