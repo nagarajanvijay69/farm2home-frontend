@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const Password = () => {
 
      const [Step, setStep] = useState(0);
-     const port = 'http://localhost:8000';
+     const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
      const [email, setEmail] = useState('');
      const dispatch = useDispatch();
      var otp = useSelector((state) => state.data.otp);

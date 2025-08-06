@@ -33,7 +33,10 @@ import Scroll from './pages/Scroll';
 
 const App = () => {
 
-  const port = 'http://localhost:8000';
+
+  
+
+  const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
   const data = useSelector((state) => state.data.products);
   const dispatch = useDispatch();
   const login = useSelector((state) => state.data.Login);

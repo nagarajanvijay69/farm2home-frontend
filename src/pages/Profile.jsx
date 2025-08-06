@@ -9,7 +9,7 @@ import axios from 'axios';
 const Profile = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
-  const port = 'http://localhost:8000';
+  const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
 
 
   const Login = useSelector((state) => state.data.Login);

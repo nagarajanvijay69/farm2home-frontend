@@ -19,7 +19,7 @@ const AdminAdd = () => {
         navigate('/admin');
     }
 
-    const port = 'http://localhost:8000';
+    const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
 
     const [Files, setFiles] = useState([]);
     const [Imgfile, setImgfile] = useState([]);

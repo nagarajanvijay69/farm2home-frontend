@@ -10,7 +10,7 @@ const Navbar = () => {
 
   var Login = useSelector((state) => state.data.Login);
   const dispatch = useDispatch();
-    const port = 'http://localhost:8000'
+    const port = import.meta.env.VITE_PORT || 'http://localhost:8000'
 
 
   const Logout = async () => {
