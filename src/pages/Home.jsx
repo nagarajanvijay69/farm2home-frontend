@@ -64,11 +64,11 @@ const Home = () => {
         <div className="w-[95%] mx-auto my-10">
           <p className='text-3xl mb-4'>Categories</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-            <Link to='/prod/Fruit' className='bg-green-200 shadow-md rounded-lg p-4 flex flex-col items-center'>
+            <Link to='/prod/Fruits' className='bg-green-200 shadow-md rounded-lg p-4 flex flex-col items-center'>
               <img src="./fruit.png" alt="Fruits" className='h-[150px] w-auto object-cover rounded-md mb-5' />
               <span className='font-semibold'>Fruits</span>
             </Link>
-            <Link to='/prod/Vegetable' className='bg-green-200 shadow-md rounded-lg p-4 flex flex-col justify-center items-center'>
+            <Link to='/prod/Vegetables' className='bg-green-200 shadow-md rounded-lg p-4 flex flex-col justify-center items-center'>
               <img src="./veg.png" alt="Vegetables" className='h-[150px] w-auto object-cover rounded-md mt-1 mb-5' />
               <span className='font-semibold'>Vegetables</span>
             </Link>
