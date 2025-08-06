@@ -11,7 +11,7 @@ const Products = () => {
   const [count, setCount] = useState(0);
   const Navigate = useNavigate();
   const dispatch = useDispatch();
-  const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
+  const port = import.meta.env.VITE_PORT;
   const login = useSelector((state) => state.data.Login);
   const user = useSelector((state) => state.data.User);
 

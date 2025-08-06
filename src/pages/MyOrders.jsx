@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 
 const Myorders = () => {
      
-     const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
+     const port = import.meta.env.VITE_PORT;
 
      const user = useSelector((state)=> state?.data?.User ?? []);
 

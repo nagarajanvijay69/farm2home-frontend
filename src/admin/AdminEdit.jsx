@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const AdminEdit = () => {
 
-    const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
+    const port = import.meta.env.VITE_PORT;
 
     const { id } = useParams();
     const navigate = useNavigate();

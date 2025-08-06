@@ -15,7 +15,7 @@ const AdminDash = () => {
         navigate('/admin');
     }
 
-    const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
+    const port = import.meta.env.VITE_PORT ;
 
 
     const deleteProduct = async (id) => {

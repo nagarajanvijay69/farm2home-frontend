@@ -6,7 +6,7 @@ const AdminPro = () => {
 
   const orders = useSelector((state) => state.data.allorder) || [];
   console.log(orders[0]);
-  const port = import.meta.env.VITE_PORT || 'http://localhost:8000';
+  const port = import.meta.env.VITE_PORT;
   const dispatch = useDispatch();
 
 

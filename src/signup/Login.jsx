@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const port = import.meta.env.VITE_PORT || 'http://localhost:8000'
+  const port = import.meta.env.VITE_PORT 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

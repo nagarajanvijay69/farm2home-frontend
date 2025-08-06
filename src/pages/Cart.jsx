@@ -14,7 +14,7 @@ const Cart = () => {
   const login = useSelector((state) => state.data.Login) || false;
   const user = useSelector((state) => state?.data?.User ?? []) || [];
 
-  const post = import.meta.env.VITE_PORT || 'http://localhost:8000';
+  const post = import.meta.env.VITE_PORT;
 
   const add = user?.address?.[0] || [];
 
