@@ -38,7 +38,7 @@ const App = () => {
 
   const port = import.meta.env.VITE_PORT;
 
-  console.log(`Port: ${port}`);
+  // console.log(`Port: ${port}`);
   
 
   const data = useSelector((state) => state.data.products);
@@ -71,7 +71,9 @@ const App = () => {
         'Content-Type': 'application/json'
       }
     })
+    console.log("Token Response: ", res.data);
     if (res.data.success === true) {
+      // console.log("Token fetched successfully");
       dispatch(setLogin());
       dispatch(setUser(res.data.user));
       dispatch(initCart(res.data.user.cart));

@@ -12,7 +12,7 @@ const Scroll =()=>{
                behavior : 'smooth',
                left : 0
           })
-          console.log("Scroll");
+          // console.log("Scroll");
 
           document.querySelector('.main-content')?.scrollTo({
                top : 0,
