@@ -10,7 +10,7 @@ const Navbar = () => {
 
   var Login = useSelector((state) => state.data.Login);
   const dispatch = useDispatch();
-    const port = 'https://farm2home-e2kl.onrender.com/'
+    const port = 'http://localhost:8000'
 
 
   const Logout = async () => {

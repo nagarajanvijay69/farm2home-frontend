@@ -14,7 +14,7 @@ const Cart = () => {
   const login = useSelector((state) => state.data.Login) || false;
   const user = useSelector((state) => state?.data?.User ?? []) || [];
 
-  const post = 'https://farm2home-e2kl.onrender.com/';
+  const post = 'http://localhost:8000';
 
   const add = user?.address?.[0] || [];
 

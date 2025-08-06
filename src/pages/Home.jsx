@@ -11,7 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.data.User);
-  const port = 'https://farm2home-e2kl.onrender.com/';
+  const port = 'http://localhost:8000';
   const login = useSelector((state) => state.data.Login);
 
 
