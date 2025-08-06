@@ -33,6 +33,7 @@ const Password = () => {
                }
           } catch (error) {
                // console.log(error.message);
+               return toast.error("Error in sending OTP, please try again later");
           }
 
           setStep(1);
