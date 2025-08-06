@@ -71,7 +71,7 @@ const App = () => {
         'Content-Type': 'application/json'
       }
     })
-    console.log("Token Response: ", res.data);
+    // console.log("Token Response: ", res.data);
     if (res.data.success === true) {
       // console.log("Token fetched successfully");
       dispatch(setLogin());
