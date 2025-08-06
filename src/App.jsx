@@ -34,7 +34,7 @@ import Scroll from './pages/Scroll';
 const App = () => {
 
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
 
   const port = import.meta.env.VITE_PORT;
 
