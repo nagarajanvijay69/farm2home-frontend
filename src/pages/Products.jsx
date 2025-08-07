@@ -50,7 +50,8 @@ const Products = () => {
   const onSearch = () => {
     if (temp.trim()) {
       setBool(true);
-      const temp2 = product.filter(item => item.name.toLowerCase().includes(temp.toLocaleLowerCase()) || item.category.toLowerCase().includes(temp.toLocaleLowerCase()))
+      const newtemp = temp.trim();
+      const temp2 = product.filter(item => item.name.toLowerCase().includes(newtemp.toLocaleLowerCase()) || item.category.toLowerCase().includes(newtemp.toLocaleLowerCase()))
       // console.log(temp2);
       dispatch(addProducts(temp2));
 
