@@ -88,6 +88,7 @@ const Products = () => {
                 onChange={(e) => {
                   setTemp(e.target.value);
                   SearchCheck(e.target.value);
+                  if(e.key == 'Enter' ) onSearch()
                 }} />
             </div>
             <button type="submit" className="bg-green-500 w-32 h-[46px] rounded-md text-sm text-white" onClick={() => onSearch()}>Search</button>
