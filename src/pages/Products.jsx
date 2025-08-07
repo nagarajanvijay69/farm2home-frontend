@@ -88,7 +88,7 @@ const Products = () => {
                 onChange={(e) => {
                   setTemp(e.target.value);
                   SearchCheck(e.target.value);
-                  console.log(e.key);
+                  console.log(e);
                   if (e.key === 'Enter' || e.key === 'search') onSearch()
                 }} />
             </div>
