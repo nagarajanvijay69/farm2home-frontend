@@ -73,7 +73,7 @@ const AdminPro = () => {
 
                         </select></p>
                         <span className={`text-indigo-700 `}>Quantity : {item.quantity}</span>
-                        <p className="font-medium">$2000</p>
+                        {/* <p className="font-medium">$2000</p> */}
                       </div>
                     </div>
                   ))}
