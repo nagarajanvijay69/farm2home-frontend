@@ -94,7 +94,7 @@ const Slice = createSlice({
                console.log('product', product);
                console.log('index', existingCartItem);
                if (existingCartItem > -1) {
-                    state.cart[existingCartItem].quantity += quantity;
+                    state.cart[existingCartItem].quantity += Number(quantity);
                } else {
                     state.cart.push({
                          productId: id,
