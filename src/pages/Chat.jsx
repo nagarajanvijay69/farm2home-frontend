@@ -38,7 +38,7 @@ const Chat = () => {
       }
       // console.log(res.data);
     } else {
-      const res = await axios.post(`/${port}/getId`, { productName });
+      const res = await axios.post(`${port}/getId`, { productName });
       toast.warn("Please Login to save data");
       dispatch(addCart(res.data.id));
       toast.success('Product added to cart successfully');
