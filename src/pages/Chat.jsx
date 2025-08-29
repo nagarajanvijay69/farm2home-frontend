@@ -65,7 +65,7 @@ const Chat = () => {
     setLoad(true);
     setQuestion(temp1);
     setTemp1("");
-    const res = await axios.post(`/${port}/query`, { query: prompt });
+    const res = await axios.post(`${port}/query`, { query: prompt });
     console.log(res.data.answer);
     if (res.data.answer.includes('navigate-')) {
       const url = res.data.answer.split('navigate-')[1];
