@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setPrompt } from '../redux-store/Slice'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { initCart, addCart } from '../redux-store/Slice'
+import { initCart, addCartquantity } from '../redux-store/Slice'
 import { useNavigate } from 'react-router-dom'
 
 const Chat = () => {
@@ -39,8 +39,7 @@ const Chat = () => {
       // console.log(res.data);
     } else {
       const res = await axios.post(`${port}/getId`, { productName });
-      toast.warn("Please Login to save data");
-      dispatch(addCart(res.data.id));
+      dispatch(addCartquantity({ id: res.data.id, quantity }));
       toast.success('Product added to cart successfully');
     }
   }

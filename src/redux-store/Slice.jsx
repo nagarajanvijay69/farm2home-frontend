@@ -11,7 +11,7 @@ const Slice = createSlice({
           cart: [],
           order: [],
           allorder: [],
-          prompt : ""
+          prompt: ""
      },
      reducers: {
           setLogin: (state) => {
@@ -21,7 +21,7 @@ const Slice = createSlice({
                state.Login = false,
                     state.User = "",
                     state.cart = []
-                    // state.order = []
+               // state.order = []
           },
           setUser: (state, action) => {
                state.User = action.payload;
@@ -85,12 +85,38 @@ const Slice = createSlice({
           },
           setPrompt: (state, action) => {
                state.prompt = action.payload;
-          }
+          },
+          addCartquantity: (state, action) => {
+               const { id, quantity } = action.payload;
+
+               const product = state.products.find(item => item._id === id);
+               const existingCartItem = state.cart.findIndex(item => item.productId === id);
+               console.log('product', product);
+               console.log('index', existingCartItem);
+               if (existingCartItem > -1) {
+                    state.cart[existingCartItem].quantity += quantity;
+               } else {
+                    state.cart.push({
+                         productId: id,
+                         name: product.name,
+                         category: product.category,
+                         discription: product.discription,
+                         offerPrice: product.offerPrice,
+                         price: product.price,
+                         imageOne: product.imageOne,
+                         imageTwo: product.imageTwo,
+                         imageThree: product.imageThree,
+                         imageFour: product.imageFour,
+                         isStock: product.isStock,
+                         quantity
+                    });
+               }
+          },
      }
 })
 
 
 export default Slice.reducer
 export const { setLogin, setLogout, setUser, setProducts, addProducts, Setotp,
-     initCart, addCart, removeCart, addOrder, initOrder, initallorder, setPrompt
+     initCart, addCart, removeCart, addOrder, initOrder, initallorder, setPrompt, addCartquantity
 } = Slice.actions
