@@ -148,7 +148,7 @@ const Chat = () => {
               <input type="text" value={temp1} onChange={(e) => {
                 setTemp1(e.target.value);
                 dispatch(setPrompt(e.target.value));
-              }} onKeyDown={handleKey} className="h-9 rounded-xl w-[80%] mr-1 px-2 md:px-3 lg:px-5 focus:outline-none" placeholder="Enter your query..." />
+              }} onKeyDown={handleKey} className="h-9 rounded-xl w-[80%] pl-4 mr-1 px-2 md:px-3 lg:px-5 focus:outline-none" placeholder="Enter your query..." />
               <img src="./arrow.svg" className="size-[40px] lg:size-[43px] ml-1 lg:mx-3 cursor-pointer" onClick={checkLoading} />
             </div>
           </div>
