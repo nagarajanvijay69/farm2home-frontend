@@ -6,7 +6,6 @@ import Contact from './pages/Contact';
 import AdminLogin from './admin/AdminLogin';
 import Login from './signup/Login'
 import Cart from './pages/Cart'
-import Book from './pages/Book'
 import Payment from './pages/Payment'
 import PageNotFound from './pages/PageNotFound';
 import Root from './Root';
@@ -101,7 +100,6 @@ const App = () => {
         <Route path='profile' element={<Profile />} />
         <Route path='cart' element={<Cart />} />
         <Route path='payment' element={<Payment />} />
-        <Route path='book' element={<Book />} />
         <Route path='password' element={<Password />} />
         <Route path='success' element={<Success />} />
         <Route path='failure' element={<Failure />} />

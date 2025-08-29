@@ -10,7 +10,8 @@ const Slice = createSlice({
           otp: Number,
           cart: [],
           order: [],
-          allorder: []
+          allorder: [],
+          prompt : ""
      },
      reducers: {
           setLogin: (state) => {
@@ -81,6 +82,9 @@ const Slice = createSlice({
                } else {
                     state.allorder[0] = action.payload;
                }
+          },
+          setPrompt: (state, action) => {
+               state.prompt = action.payload;
           }
      }
 })
@@ -88,5 +92,5 @@ const Slice = createSlice({
 
 export default Slice.reducer
 export const { setLogin, setLogout, setUser, setProducts, addProducts, Setotp,
-     initCart, addCart, removeCart, addOrder, initOrder, initallorder
+     initCart, addCart, removeCart, addOrder, initOrder, initallorder, setPrompt
 } = Slice.actions
