@@ -28,7 +28,7 @@ const Chat = () => {
 
    const toCart = async (productName, quantity) => {
     if (login) {
-      const res = await axios.post(`${port}/aiCart`, { productName, userId: user._id, quantity });
+      const res = await axios.post(`${port}/aiCart`, { productName, userId: user._id, quantity : Number(quantity) });
       console.log(res.data);
       if (res.data.success === true) {
         dispatch(initCart(res.data.cartItem));
@@ -39,7 +39,7 @@ const Chat = () => {
       // console.log(res.data);
     } else {
       const res = await axios.post(`${port}/getId`, { productName });
-      dispatch(addCartquantity({ id: res.data.id, quantity }));
+      dispatch(addCartquantity({ id: res.data.id, quantity : Number(quantity) }));
       toast.success('Product added to cart successfully');
     }
   }
