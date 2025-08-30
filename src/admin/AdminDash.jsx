@@ -73,7 +73,7 @@ const AdminDash = () => {
                                                     <span className="truncate max-sm:hidden w-full">{product.name}</span>
                                                 </td>
                                                 <td className="px-4 py-3">{product.category}</td>
-                                                <td className="px-4 py-3 max-sm:hidden">${product.offerPrice}</td>
+                                                <td className="px-4 py-3 max-sm:hidden">₹{product.offerPrice}</td>
                                                 <td className="px-4 py-3">
                                                     <label className="relative inline-flex items-center cursor-pointer text-gray-900 gap-3">
                                                         {/* <input type="checkbox" className="sr-only peer" defaultChecked={product.inStock} /> */}
