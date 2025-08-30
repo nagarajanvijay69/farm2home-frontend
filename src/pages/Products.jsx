@@ -113,7 +113,7 @@ const Products = () => {
                 <p className="text-gray-700 font-medium text-lg truncate w-full">{item.name}</p>
                 <div className="flex items-end justify-between mt-3">
                   <p className="md:text-xl text-base font-medium text-green-500">
-                    ${item.offerPrice} <span className="text-gray-500/60 md:text-sm text-xs line-through">${item.price}</span>
+                   ₹{item.offerPrice} <span className="text-gray-500/60 md:text-sm text-xs line-through">${item.price}</span>
                   </p>
                   <div className="text-indigo-500">
                     <button className="flex items-center justify-center gap-1 bg-green-500 md:w-[80px] w-[64px] h-[34px] rounded text-white font-medium"
