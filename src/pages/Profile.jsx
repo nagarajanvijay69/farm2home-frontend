@@ -24,9 +24,9 @@ const Profile = () => {
           'Content-Type': 'application/json'
         }
       });
-      if (res.data.success) {
-        Cookies.remove('token');
-      }
+      // if (res.data.success) {
+      //   Cookies.remove('token');
+      // }
       // console.log(res.data);
     } catch (error) {
       // console.log("Error in logout", error.message);

@@ -24,9 +24,9 @@ const Navbar = () => {
           'Content-Type': 'application/json'
         }
       });
-      if(res.data.success){
-        Cookies.remove('token');
-      }
+      // if(res.data.success){
+      //   Cookies.remove('token');
+      // }
 
 
       //  console.log(res.data);
