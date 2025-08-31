@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { setLogout } from '../redux-store/Slice'
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 
 const Navbar = () => {
@@ -10,22 +11,27 @@ const Navbar = () => {
 
   var Login = useSelector((state) => state.data.Login);
   const dispatch = useDispatch();
-    const port = import.meta.env.VITE_PORT
+  const port = import.meta.env.VITE_PORT
 
 
   const Logout = async () => {
     dispatch(setLogout());
     console.log("Log out");
- try{
-     const res = await axios.get(`${port}/logout`,{
+    try {
+      const res = await axios.get(`${port}/logout`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'
         }
-     });
-    //  console.log(res.data);
+      });
+      if(res.data.success){
+        Cookies.remove('token');
+      }
 
- } catch (error) {
+
+      //  console.log(res.data);
+
+    } catch (error) {
       // console.log("Error in logout", error.message);
     }
     setIsMenu(false);
@@ -46,7 +52,7 @@ const Navbar = () => {
           {
             Login ?
               <Link className='bg-red-500 px-3 py-1 md:hidden text-center text-white rounded-lg mb-3'
-                onClick={() => setIsMenu(false)}><button>Logout</button></Link>
+                onClick={Logout}><button>Logout</button></Link>
               :
               <Link to='/login' className='bg-green-500 px-3 py-1 md:hidden text-center text-white rounded-lg mb-3'
                 onClick={() => setIsMenu(false)}><button>Login</button></Link>

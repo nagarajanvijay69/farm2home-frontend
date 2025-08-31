@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { setLogout } from '../redux-store/Slice'
 import axios from 'axios';
-
+import Cookies from 'js-cookie'
 
 
 
@@ -24,6 +24,9 @@ const Profile = () => {
           'Content-Type': 'application/json'
         }
       });
+      if (res.data.success) {
+        Cookies.remove('token');
+      }
       // console.log(res.data);
     } catch (error) {
       // console.log("Error in logout", error.message);
