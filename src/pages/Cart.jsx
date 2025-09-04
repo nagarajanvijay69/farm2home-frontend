@@ -208,15 +208,7 @@ const Cart = () => {
                       <p className="hidden md:block font-semibold">{product.name}</p>
                       <div className="font-normal text-gray-500/70">
                         <div className='flex items-center'>
-                          <p> Qty: <input type="number" value={product.quantity} onChange={(e) => {
-                            const newQuantity = Number(e.target.value);
-                            if (newQuantity > 0) {
-                              // toCart(product.name, newQuantity);
-                              product.quantity = newQuantity;
-                              console.log(product.quantity, product.productId);
-                              // calculateTotal();
-                            }
-                          }} /></p>
+                          <p> Qty: {product.quantity}</p>
                         </div>
                       </div>
                     </div>
