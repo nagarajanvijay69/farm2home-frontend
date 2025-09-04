@@ -14,6 +14,8 @@ const Cart = () => {
   const login = useSelector((state) => state.data.Login) || false;
   const user = useSelector((state) => state?.data?.User ?? []) || [];
 
+  var tempQuantity = 0;
+
   const post = import.meta.env.VITE_PORT;
 
   const add = user?.address?.[0] || [];
@@ -206,17 +208,15 @@ const Cart = () => {
                       <p className="hidden md:block font-semibold">{product.name}</p>
                       <div className="font-normal text-gray-500/70">
                         <div className='flex items-center'>
-                          <p> <button className='text-green-500' onClick={() => {
-                            console.log(product.quantity);
-                            calculateTotal();
-                            toCart(product.name, product.quantity + 1);
-                            console.log(product.quantity);
-                          }}>+</button> Qty: {product.quantity} <button className='text-red-500' onClick={() => {
-                            console.log(product.quantity);
-                            calculateTotal();
-                            toCart(product.name, product.quantity - 1);
-                            console.log(product.quantity);
-                          }}>-</button></p>
+                          <p> Qty: <input type="number" value={product.quantity} onChange={(e) => {
+                            const newQuantity = Number(e.target.value);
+                            if (newQuantity > 0) {
+                              // toCart(product.name, newQuantity);
+                              product.quantity = newQuantity;
+                              console.log(product.quantity, product.productId);
+                              // calculateTotal();
+                            }
+                          }} /></p>
                         </div>
                       </div>
                     </div>
