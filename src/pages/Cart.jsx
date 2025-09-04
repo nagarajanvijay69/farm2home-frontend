@@ -208,12 +208,12 @@ const Cart = () => {
                         <div className='flex items-center'>
                           <p> <button className='text-green-500' onClick={() => {
                             console.log(product.quantity);
-                            product.quantity++; calculateTotal();
+                            calculateTotal();
                             toCart(product.name, product.quantity);
                             console.log(product.quantity);
                           }}>+</button> Qty: {product.quantity} <button className='text-red-500' onClick={() => {
                             console.log(product.quantity);
-                            product.quantity--; calculateTotal();
+                            calculateTotal();
                             toCart(product.name, product.quantity);
                             console.log(product.quantity);
                           }}>-</button></p>
