@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeCart } from '../redux-store/Slice'
 import axios from 'axios'
-import { initCart, setUser } from '../redux-store/Slice'
+import { initCart, setUser, changeQuantity } from '../redux-store/Slice'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -116,25 +116,25 @@ const Cart = () => {
   }
 
 
-  const toCart = async (productName, quantity) => {
-
+  const increase = async (index, quantity) => {
     if (login) {
-      const res = await axios.post(`${post}/aiCart`, { productName, userId: user._id, quantity: Number(quantity) });
-      console.log(res.data);
-      if (res.data.success === true) {
-        dispatch(initCart(res.data.cartItem));
-        toast.success('Product added to cart successfully');
-      } else {
-        toast.error('Failed to add product to cart');
-      }
-      // console.log(res.data);
+      dispatch(changeQuantity({ index: index, quantity: quantity + 1 }));
+      await axios.put(`${post}/quantity`, { userId: user._id, index, quantity: quantity + 1 });
     } else {
-      const res = await axios.post(`${post}/getId`, { productName });
-      dispatch(addCartquantity({ id: res.data.id, quantity: Number(quantity) }));
-      toast.success('Product added to cart successfully');
+      dispatch(changeQuantity({ index: index, quantity: quantity + 1 }));
     }
   }
 
+  const decrease = async (index, quantity) => {
+    if (login) {
+      if (quantity === 1) return toast.warn("Minimum quantity is 1");
+      dispatch(changeQuantity({ index: index, quantity: quantity - 1 }));
+      await axios.put(`${post}/quantity`, { userId: user._id, index, quantity: quantity - 1 });
+    } else {
+      if (quantity === 1) return toast.warn("Minimum quantity is 1");
+      dispatch(changeQuantity({ index: index, quantity: quantity - 1 }));
+    }
+  }
 
   const [showAddressForm, setShowAddressForm] = useState(false);
 
@@ -208,7 +208,11 @@ const Cart = () => {
                       <p className="hidden md:block font-semibold">{product.name}</p>
                       <div className="font-normal text-gray-500/70">
                         <div className='flex items-center'>
-                          <p> Qty: {product.quantity}</p>
+                          <span className='flex items-center border border-gray-300 rounded'>
+                            <button className='rounded px-2 py-1' onClick={() => decrease(index, product.quantity)}>-</button>
+                            <p className='mx-2'> {product.quantity} </p>
+                            <button className='rounded px-2 py-1' onClick={() => increase(index, product.quantity)}>+</button>
+                          </span>
                         </div>
                       </div>
                     </div>

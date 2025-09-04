@@ -86,6 +86,10 @@ const Slice = createSlice({
           setPrompt: (state, action) => {
                state.prompt = action.payload;
           },
+          changeQuantity: (state, action) => {
+               const { index, quantity } = action.payload;
+               state.cart[index].quantity = quantity;
+          },
           addCartquantity: (state, action) => {
                const { id, quantity } = action.payload;
 
@@ -117,6 +121,6 @@ const Slice = createSlice({
 
 
 export default Slice.reducer
-export const { setLogin, setLogout, setUser, setProducts, addProducts, Setotp,
+export const { setLogin, setLogout, setUser, setProducts, addProducts, Setotp, changeQuantity,
      initCart, addCart, removeCart, addOrder, initOrder, initallorder, setPrompt, addCartquantity
 } = Slice.actions
