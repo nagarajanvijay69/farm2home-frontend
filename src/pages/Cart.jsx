@@ -114,23 +114,21 @@ const Cart = () => {
   }
 
 
- const toCart = async (productName, quantity) => {
-     if(!window.confirm(`Are you sure you want to change the quantity to ${quantity} ?`)){
-      return;
-     }
+  const toCart = async (productName, quantity) => {
+
     if (login) {
-      const res = await axios.post(`${port}/aiCart`, { productName, userId: user._id, quantity : Number(quantity) });
+      const res = await axios.post(`${port}/aiCart`, { productName, userId: user._id, quantity: Number(quantity) });
       console.log(res.data);
       if (res.data.success === true) {
         dispatch(initCart(res.data.cartItem));
         toast.success('Product added to cart successfully');
       } else {
-       toast.error('Failed to add product to cart');
+        toast.error('Failed to add product to cart');
       }
       // console.log(res.data);
     } else {
       const res = await axios.post(`${port}/getId`, { productName });
-      dispatch(addCartquantity({ id: res.data.id, quantity : Number(quantity) }));
+      dispatch(addCartquantity({ id: res.data.id, quantity: Number(quantity) }));
       toast.success('Product added to cart successfully');
     }
   }
@@ -208,7 +206,11 @@ const Cart = () => {
                       <p className="hidden md:block font-semibold">{product.name}</p>
                       <div className="font-normal text-gray-500/70">
                         <div className='flex items-center'>
-                          <p>Qty: <input type="number" min="1" max="10" value={product.quantity} onChange={(e) => toCart(product.name, e.target.value)} className="border border-gray-300 rounded px-2 py-1 w-16" /></p>
+                          <p>Qty: <input type="number" min="1" value={product.quantity} onChange={(e) => {
+                            toCart(product.name, e.target.value);
+                            product.quantity = e.target.value;
+                            calculateTotal();
+                          }} className="border border-gray-300 rounded px-2 py-1 w-16" /></p>
                         </div>
                       </div>
                     </div>
