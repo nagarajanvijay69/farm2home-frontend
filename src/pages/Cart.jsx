@@ -206,11 +206,17 @@ const Cart = () => {
                       <p className="hidden md:block font-semibold">{product.name}</p>
                       <div className="font-normal text-gray-500/70">
                         <div className='flex items-center'>
-                          <p>Qty: <input type="number" min="1" value={product.quantity} onChange={(e) => {
-                            toCart(product.name, e.target.value);
-                            product.quantity = e.target.value;
-                            calculateTotal();
-                          }} className="border border-gray-300 rounded px-2 py-1 w-16" /></p>
+                          <p> <button onClick={() => {
+                            console.log(product.quantity);
+                            product.quantity++; calculateTotal();
+                            toCart(product.name, product.quantity);
+                            console.log(product.quantity);
+                          }}>+</button> Qty: {product.quantity} <button onClick={() => {
+                            console.log(product.quantity);
+                            product.quantity--; calculateTotal();
+                            toCart(product.name, product.quantity);
+                            console.log(product.quantity);
+                          }}>-</button></p>
                         </div>
                       </div>
                     </div>
