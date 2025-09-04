@@ -206,12 +206,12 @@ const Cart = () => {
                       <p className="hidden md:block font-semibold">{product.name}</p>
                       <div className="font-normal text-gray-500/70">
                         <div className='flex items-center'>
-                          <p> <button onClick={() => {
+                          <p> <button className='text-green-500' onClick={() => {
                             console.log(product.quantity);
                             product.quantity++; calculateTotal();
                             toCart(product.name, product.quantity);
                             console.log(product.quantity);
-                          }}>+</button> Qty: {product.quantity} <button onClick={() => {
+                          }}>+</button> Qty: {product.quantity} <button className='text-red-500' onClick={() => {
                             console.log(product.quantity);
                             product.quantity--; calculateTotal();
                             toCart(product.name, product.quantity);
