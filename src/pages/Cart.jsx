@@ -209,12 +209,12 @@ const Cart = () => {
                           <p> <button className='text-green-500' onClick={() => {
                             console.log(product.quantity);
                             calculateTotal();
-                            toCart(product.name, product.quantity);
+                            toCart(product.name, product.quantity + 1);
                             console.log(product.quantity);
                           }}>+</button> Qty: {product.quantity} <button className='text-red-500' onClick={() => {
                             console.log(product.quantity);
                             calculateTotal();
-                            toCart(product.name, product.quantity);
+                            toCart(product.name, product.quantity - 1);
                             console.log(product.quantity);
                           }}>-</button></p>
                         </div>
