@@ -34,21 +34,43 @@ const Cart = () => {
     phone: add.phone,
     email: add.email
   });
+  const [temp, setTemp] = useState(true);
+  if (add.name && temp) {
+    address.name = add.name;
+    address.street = add.street;
+    address.city = add.city;
+    address.state = add.state;
+    address.country = add.country;
+    address.phone = add.phone;
+    address.email = add.email;
+    setTemp(false);
+  }
+
+  console.log('address', add);
 
   const loadRazorpay = async () => {
-    if (!login) return toast.warn("Please login to continue payment");
 
     if (bool) {
+      if (!address.name || !address.street || !address.city || !address.state || !address.country
+        || !address.phone || !address.email) {
+        return toast.warn('All fields are Required in Delivery Address')
+      }
+
+      if (address.phone.includes(" ")) {
+        return toast.warn('Enter valid Phone Number');
+      }
+
       const res = await axios.post(`${post}/address`, { address, userId: user._id });
       dispatch(setUser(res.data.user));
       setBool(false);
     }
 
-
     if (!address.name || !address.street || !address.city || !address.state || !address.country
       || !address.phone || !address.email) {
       return toast.warn('All fields are Required in Delivery Address')
     }
+
+
 
     const { data } = await axios.post(`${post}/create-order`, {
       amount: totalAmount,
@@ -297,10 +319,17 @@ const Cart = () => {
                       className="w-full border border-gray-300 px-3 py-2 outline-none"
                     />
                     <input
-                      type="text"
-                      placeholder="Phone Number"
+                      type="tel"
+                      placeholder="10-digit Phone Number"
+                      minLength={10}
+                      maxLength={10}
+                      required
                       value={address.phone}
-                      onChange={(e) => setAddress({ ...address, phone: e.target.value })}
+                      onChange={(e) => {
+                        if (! /[a-zA-Z]/.test(e.target.value)) {
+                          setAddress({ ...address, phone: e.target.value })
+                        }
+                      }}
                       className="w-full border border-gray-300 px-3 py-2 outline-none"
                     />
                     <input
